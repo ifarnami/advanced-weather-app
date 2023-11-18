@@ -79,12 +79,12 @@ export const Icons: IconsType = {
     );
   },
 
-  logo: () => {
+  logo: (s: number = 50) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
+        width={`${s}`}
+        height={`${s}`}
         viewBox="0 0 39 21"
         fill="none"
       >

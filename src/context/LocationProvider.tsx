@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { LocationContextType } from "../types/types";
 import axios from "axios";
 import { urlGenerator } from "../constants/url";
+import { toast } from "react-toastify";
 
 interface ILocationProps extends React.PropsWithChildren {}
 
@@ -51,27 +52,38 @@ const LocationProvider: React.FC<ILocationProps> = ({
     };
 
     firstTimeFetch();
+    toast.promise(firstTimeFetch, {
+      pending: "Loading data for Tehran",
+      success: "Successful!",
+      error: "We hit a roadblock!",
+    });
   }, []);
 
   const fetchLocationData = async (loc: string) => {
-    await axios(`${urlGenerator(loc)}`).then((res) => {
-      const data = res.data;
-      console.log(data);
-      setWeatherData({
-        ...weatherData,
-        weather: data.weather[0].main,
-        temp: Math.floor(data.main.temp),
-        humidity: data.main.humidity,
-        pressure: data.main.pressure,
-        temp_max: data.main.temp_max,
-        temp_min: data.main.temp_min,
-        speed: data.wind.speed,
-        clouds: data.clouds.all,
-        city_name: data.name,
-        icon_name: data.weather[0].main,
+    toast.info("Getting weather data...");
+    await axios(`${urlGenerator(loc)}`)
+      .then((res) => {
+        toast.success("Success!");
+        const data = res.data;
+        console.log(data);
+        setWeatherData({
+          ...weatherData,
+          weather: data.weather[0].main,
+          temp: Math.floor(data.main.temp),
+          humidity: data.main.humidity,
+          pressure: data.main.pressure,
+          temp_max: data.main.temp_max,
+          temp_min: data.main.temp_min,
+          speed: data.wind.speed,
+          clouds: data.clouds.all,
+          city_name: data.name,
+          icon_name: data.weather[0].main,
+        });
+      })
+      .catch((err) => {
+        toast.error("We hit a roadblock!");
+        throw new Error(err);
       });
-      console.log(weatherData);
-    });
   };
 
   return (

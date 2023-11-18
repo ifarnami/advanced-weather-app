@@ -19,11 +19,11 @@ const SearchLocation: React.FC<ISearchLocationProps> = (): JSX.Element => {
   };
 
   return (
-    <div className="flex items-center border-b border-b-white pb-1">
+    <div className="flex items-center border-b border-b-white pb-1 lg:w-52 justify-between">
       <input
         type="text"
         placeholder="Search Location..."
-        className="bg-transparent text-white outline-none text-[rgba(255, 255, 255)] text-opacity-70 text-[12px]"
+        className="bg-transparent text-white outline-none text-[rgba(255, 255, 255)] text-opacity-70 text-[12px] lg:text-[16px]"
         value={location}
         onChange={handleChange}
       />

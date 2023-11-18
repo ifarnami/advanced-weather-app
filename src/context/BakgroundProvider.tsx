@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { urlGenerator } from "../constants/url";
-import { toast } from "react-toastify";
 import { BackgroundContextType } from "../types/types";
 
 interface IBackgroundProviderProps {
@@ -27,11 +26,6 @@ const BakgroundProvider: React.FC<IBackgroundProviderProps> = ({
         .catch((err) => console.log(err));
     };
     fetchWeather();
-    toast.promise(fetchWeather, {
-      pending: "Getting Data...",
-      success: "Got Data...",
-      error: "Request Rejected...",
-    });
   }, []);
 
   return (

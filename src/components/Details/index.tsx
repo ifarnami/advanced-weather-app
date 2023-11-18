@@ -9,7 +9,7 @@ const Details: React.FC<IDetailsProps> = (): JSX.Element => {
   const { temp_max, temp_min, humidity, clouds, speed, weather } = weatherData;
 
   return (
-    <div className="pt-4 mt-20 flex flex-col h-screen items-center backdrop-blur-lg bg-white bg-opacity-[0.04] border-t-[5px] border-t-white border-opacity-[0.14]">
+    <div className="pt-4 mt-20 lg:mt-0 flex flex-col h-screen items-center backdrop-blur-lg bg-white bg-opacity-[0.04] border-t-[5px] border-t-white border-opacity-[0.14]">
       <h4 className="text-sm">Weather Details...</h4>
       <p className="font-medium uppercase mt-5 text-sm">{weather}</p>
       <div className="flex w-full justify-around items-center mt-4">
@@ -38,7 +38,10 @@ const Details: React.FC<IDetailsProps> = (): JSX.Element => {
             {Icons.cloud()}
           </li>
           <li className="flex items-center justify-between gap-2">
-            <p>{speed}<span className="text-xs">km/h</span></p>
+            <p>
+              {speed}
+              <span className="text-xs">km/h</span>
+            </p>
             {Icons.wind()}
           </li>
         </ul>

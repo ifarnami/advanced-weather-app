@@ -6,8 +6,11 @@ interface INavbarProps {}
 const Navbar: React.FC<INavbarProps> = (): JSX.Element => {
   return (
     <div className="flex items-center justify-between py-5 px-6">
-      <div>{Icons.logo()}</div>
-      <SearchLocation />
+      <div className="lg:hidden">{Icons.logo()}</div>
+      <div className="sm:hidden md:hidden lg:block">{Icons.logo(100)}</div>
+      <div>
+        <SearchLocation />
+      </div>
     </div>
   );
 };

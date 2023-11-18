@@ -18,7 +18,7 @@ const App = (): JSX.Element => {
       </LocationProvider>
       <ToastContainer
         theme="dark"
-        position="top-left"
+        position="top-center"
         autoClose={3000}
         hideProgressBar={true}
       />
