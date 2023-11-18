@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { urlGenerator } from "../constants/url";
 import { toast } from "react-toastify";
-import { BackgroundContextType } from "../constants/types";
+import { BackgroundContextType } from "../types/types";
 
 interface IBackgroundProviderProps {
   children: JSX.Element | JSX.Element[];
