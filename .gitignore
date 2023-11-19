@@ -23,6 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-# Api Key
-apiKey.ts
 package-lock.json
