@@ -44,8 +44,8 @@ export type BackgroundContextType = {
 };
 
 export type LocationContextType = {
-  location?: string;
-  setLocation?: React.Dispatch<React.SetStateAction<string>>;
-  fetchLocationData?: (loc: string) => void;
+  location: string;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
+  fetchLocationData: (loc: string) => void;
   weatherData: WeatherDataType;
 };
