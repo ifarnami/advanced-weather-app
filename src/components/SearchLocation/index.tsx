@@ -6,16 +6,20 @@ import { LocationContext } from "../../context/LocationProvider";
 interface ISearchLocationProps {}
 
 const SearchLocation: React.FC<ISearchLocationProps> = (): JSX.Element => {
-  const { location, setLocation, fetchLocationData } =
-    useContext(LocationContext);
+  const locationContext = useContext(LocationContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocation(e.target.value);
+    // setLocation(e.target.value);
+    locationContext?.setLocation !== undefined &&
+      locationContext?.setLocation(e.target.value);
   };
 
   const handleClick = () => {
-    fetchLocationData(location);
-    setLocation("");
+    locationContext?.fetchLocationData &&
+      locationContext.location !== undefined &&
+      locationContext?.fetchLocationData(locationContext.location);
+    locationContext?.setLocation !== undefined &&
+      locationContext.setLocation("");
   };
 
   return (
@@ -24,7 +28,7 @@ const SearchLocation: React.FC<ISearchLocationProps> = (): JSX.Element => {
         type="text"
         placeholder="Search Location..."
         className="bg-transparent text-white outline-none text-[rgba(255, 255, 255)] text-opacity-70 text-[12px] lg:text-[16px]"
-        value={location}
+        value={locationContext?.location}
         onChange={handleChange}
       />
       <div

@@ -6,7 +6,9 @@ import { toast } from "react-toastify";
 
 interface ILocationProps extends React.PropsWithChildren {}
 
-const LocationContext = createContext<LocationContextType | undefined>({});
+const LocationContext = createContext<LocationContextType | undefined>(
+  undefined
+);
 
 const LocationProvider: React.FC<ILocationProps> = ({
   children,
