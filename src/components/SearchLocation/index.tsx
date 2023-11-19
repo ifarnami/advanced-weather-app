@@ -1,25 +1,19 @@
-import { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
-import { LocationContext } from "../../context/LocationProvider";
-// import { LocationContextType } from "../../types/types";
+import { useLocationContext } from "../../Hooks/useLocationContext";
 
 interface ISearchLocationProps {}
 
 const SearchLocation: React.FC<ISearchLocationProps> = (): JSX.Element => {
-  const locationContext = useContext(LocationContext);
+  const locationContext = useLocationContext();
+  const { fetchLocationData, setLocation, location } = locationContext;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // setLocation(e.target.value);
-    locationContext?.setLocation !== undefined &&
-      locationContext?.setLocation(e.target.value);
+    setLocation(e.target.value);
   };
 
   const handleClick = () => {
-    locationContext?.fetchLocationData &&
-      locationContext.location !== undefined &&
-      locationContext?.fetchLocationData(locationContext.location);
-    locationContext?.setLocation !== undefined &&
-      locationContext.setLocation("");
+    fetchLocationData(location);
+    setLocation("");
   };
 
   return (
