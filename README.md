@@ -1,27 +1,16 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Advanced Weather App
 
-Currently, two official plugins are available:
+This app will show results about weather for any location, this info includes temprature, wind speed, min temp, max temp.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Why do i call it advanced?
+i have built a simpler [weather app](https://weather-app-farnam.netlify.app/) while i was learning react, but now that i'm more experienced i wanted to build that project using best practices.
+## Tech Stack
 
-## Expanding the ESLint configuration
+**Client:** React, Context API, TailwindCSS, Axios, TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Screenshots
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![Desktop Screenshot](src/screenshots/Desktop.png)
+![Tablet Screenshot](src/screenshots/Tablet.png)
+![Mobile Screenshot](src/screenshots/Mobile.png)
